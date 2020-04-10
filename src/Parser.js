@@ -1,5 +1,12 @@
 
 /**
+ * @typedef {Object} Voxel The actual voxel data, describing a filled voxel.
+ * @property {number} x The x coordinate of the voxel.
+ * @property {number} y The y coordinate of the voxel.
+ * @property {number} z The z coordinate of the voxel.
+ */
+
+/**
  * @typedef {Object} VoxelData Parsed BINVOX file data structure representation.
  * @property {Object} dimension The dimension of the voxel data.
  * @property {number} dimension.depth The depth dimension of the voxel data.
@@ -10,7 +17,7 @@
  * @property {number} translate.width The width translation of the voxel data.
  * @property {number} translate.height The height translation of the voxel data.
  * @property {number} scale The scaling of the voxel data.
- * @property {Array<{x: number, y: number, z: number}>} voxels The actual voxel data, describing an filled voxel.
+ * @property {Array<Voxel>} voxels The actual voxel data, describing filled voxels.
  */
 
 /**

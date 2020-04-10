@@ -16,7 +16,7 @@ export class Builder {
 
   /**
    * Build BINVOX file buffer data.
-   * @param {import('./Parser.js').VoxelData} data JavaScript representation of BINVOX voxel data.
+   * @param {VoxelData} data JavaScript representation of BINVOX voxel data.
    */
   build(data) {
     this.dimension = data.dimension;
