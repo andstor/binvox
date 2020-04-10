@@ -66,7 +66,7 @@ export class Parser {
     let i = this.index;
     let line = "";
     while (continueReading) {
-      let char = decoder.decode(buffer.slice(i, i + 1))
+      let char = decoder.decode(buffer.slice(i, i + 1));
       if (char === "\n") {
         lines.push(line);
         line = "";
@@ -141,7 +141,7 @@ export class Parser {
           let point = { x: x, y: y, z: z };
           this.voxels.push(point);
         }
-        y++
+        y++;
         if (y === this.dimension.depth) {
           y = 0;
           z++;
