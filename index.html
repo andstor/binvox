@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Builder.html">Builder</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Builder.html#build">build</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Parser.html">Parser</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parser.html#parse">parse</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h1>BINVOX</h1>
+<blockquote>
+<p>Parser and builder for BINVOX voxel file format.</p>
+</blockquote>
+<p><a href="https://npmjs.org/package/binvox" title="View this project on npm"><img src="http://img.shields.io/npm/v/binvox.svg?style=flat" alt="npm version"></a>
+<img src="https://github.com/andstor/binvox/workflows/Build/badge.svg" alt="Build">
+<a href="https://coveralls.io/github/andstor/binvox?branch=master"><img src="https://coveralls.io/repos/github/andstor/binvox/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="https://lgtm.com/projects/g/andstor/binvox/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/g/andstor/binvox.svg?" alt="Language grade: JavaScript"></a></p>
+<p>Specification of vox file format can be found <a href="https://www.patrickmin.com/binvox/binvox.html">here</a>.</p>
+<p><a href="https://andstor.github.io/binvox/">Documentation</a> -
+<a href="https://github.com/andstor/binvox/wiki">Wiki</a></p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#install">Install</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#api">API</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2>Install</h2>
+<pre class="prettyprint source lang-console"><code>$ npm install --save binvox
+</code></pre>
+<h2>Usage</h2>
+<h3>Syntax</h3>
+<pre class="prettyprint source lang-js"><code>import BINVOX from 'binvox';
+// or
+const BINVOX = require('binvox');
+</code></pre>
+<h3>Example</h3>
+<p>This Node.js example reads a BONVOX file and parses it:</p>
+<pre class="prettyprint source lang-js"><code>const fs = require('fs');
+const BINVOX = require('binvox');
+ 
+fs.readFile('path/to/file.binvox', (err, data) => {
+  if (err) throw new Error(err);
+  const parser = new BINVOX.Parser();
+  const result = parser.parse(data.buffer);
+  console.log(result);
+})
+</code></pre>
+<p>where <code>data.buffer</code> is an instance of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer</a>.</p>
+<p>It is recommended to read the official BINVOX <a href="https://www.patrickmin.com/binvox/binvox.html">specification</a>, in order to understand the structure of the data.</p>
+<p>The output consists of various file information, in addition to the actual voxel data:</p>
+<pre class="prettyprint source lang-js"><code>{
+  
+  dimension: { depth: 32, width: 32, height: 32 },
+  translate: { depth: 11.81, width: 21.39, height: -1.69 },
+  scale: 30.206,
+  voxels: [...]
+}
+</code></pre>
+<p><code>voxels</code> contain the actual voxel data (points), and looks like this:</p>
+<pre class="prettyprint source lang-js"><code>[
+  { x: 0, y: 2, z: 3 },
+  { x: 0, y: 3, z: 3 },
+  { x: 0, y: 4, z: 3 },
+  ...,
+]
+</code></pre>
+<p>where the index of each voxel is ordered by the voxel's &quot;location in space&quot;.</p>
+<h2>API</h2>
+<h3><a href="https://andstor.github.io/binvox/Parser.html"><code>BINVOX.Parser</code></a></h3>
+<ul>
+<li><a href="https://andstor.github.io/binvox/Parser.html"><code>constructor()</code></a></li>
+<li><a href="https://andstor.github.io/binvox/Parser.html#parse"><code>parse(buffer): Object</code></a></li>
+</ul>
+<h3><a href="https://andstor.github.io/binvox/Builder.html"><code>BINVOX.Builder</code></a></h3>
+<ul>
+<li><a href="https://andstor.github.io/binvox/Builder.html"><code>constructor()</code></a></li>
+<li><a href="https://andstor.github.io/binvox/Builder.html#build"><code>build(object): ArrayBuffer</code></a></li>
+</ul>
+<h2>License</h2>
+<p>Copyright © 2020 <a href="https://github.com/andstor">André Storhaug</a></p>
+<p>BINVOX is licensed under the <a href="https://github.com/andstor/binvox/blob/master/LICENSE">MIT License</a>.</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Fri Apr 10 2020 14:34:20 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
