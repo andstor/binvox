@@ -54,8 +54,7 @@ It is recommended to read the official BINVOX [specification](https://www.patric
 
 The output consists of various file information, in addition to the actual voxel data:
 ```js
-{
-  
+{ 
   dimension: { depth: 32, width: 32, height: 32 },
   translate: { depth: 11.81, width: 21.39, height: -1.69 },
   scale: 30.206,
