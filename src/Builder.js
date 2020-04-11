@@ -72,14 +72,13 @@ export class Builder {
 
     let array = [];
 
-    for (let i = 0; i < this.dimension.width; i++) {
+    for (let i = 0; i < this.dimension.depth; i++) {
       for (let j = 0; j < this.dimension.height; j++) {
-        for (let k = 0; k < this.dimension.depth; k++) {
+        for (let k = 0; k < this.dimension.width; k++) {
 
           let value = 0;
           if (
             this.voxels[index] !== undefined &&
-            // TODO check indexes...
             this.voxels[index].x === i &&
             this.voxels[index].y === k &&
             this.voxels[index].z === j

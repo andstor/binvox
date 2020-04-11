@@ -142,11 +142,11 @@ export class Parser {
           this.voxels.push(point);
         }
         y++;
-        if (y === this.dimension.depth) {
+        if (y === this.dimension.width) {
           y = 0;
           z++;
         }
-        if (z === this.dimension.width) {
+        if (z === this.dimension.height) {
           z = 0;
           x++;
         }
