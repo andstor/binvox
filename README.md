@@ -29,8 +29,9 @@ $ npm install --save binvox
 ### Syntax
 
 ```js
-import BINVOX from 'binvox';
-// or
+// Import via ES6 modules
+import {Builder, Parser} from 'binvox';
+// or UMD
 const BINVOX = require('binvox');
 ```
 
