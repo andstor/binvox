@@ -37,7 +37,7 @@ jobs:
 
     - name: Coveralls
       if: steps.check_files.outputs.files_exists == 'true' &&
-          steps.coverage_file.outputs.contents != ""
+          steps.coverage_file.outputs.contents != ''
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
