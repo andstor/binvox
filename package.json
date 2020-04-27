@@ -8,7 +8,7 @@
     "build": "rollup -c",
     "watch": "rollup -c --watch",
     "test": "jest --passWithNoTests",
-    "coverage": "npm test -- --coverage --coverageReporters=text-lcov",
+    "coverage": "npm test -- --coverage --coverageReporters=lcov",
     "prepare": "npm run build"
   },
   "repository": {
